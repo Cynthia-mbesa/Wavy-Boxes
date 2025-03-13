@@ -1,6 +1,6 @@
 .wavy-box {
-  --s: 20px;  /* control the size of the wave */
-  --w: 360px; /* preferred  width */
+  --s: 30px;  /* control the size of the wave */
+  --w: 450px; /* preferred  width */
   
   width: round(var(--w),4*var(--s)); 
   aspect-ratio: 1;
@@ -15,4 +15,13 @@
     radial-gradient(calc(sqrt(2)*var(--s)),#0000 100%,#000 calc(100% + 1px)) 
      var(--s) var(--s) padding-box;
   mask-size: calc(var(--s)*4) calc(var(--s)*4);
+  
+}@keyframes wave-animation {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
+    100% { transform: translateY(0); }
+}
+
+.wavy-box {
+    animation: wave-animation 2s infinite ease-in-out;
 }
